@@ -1,4 +1,4 @@
-#ifndef MY_STD_DOU
+ï»¿#ifndef MY_STD_DOU
 	#define MY_STD_DOU
 	#include <stdlib.h>
 #endif
@@ -18,7 +18,7 @@ D_Link * D_LinkCreate()(int need)
 {
 	D_Link * p = __D_LinkCreate();
 
-	for(int i = 1; i < need; ++i)							//ÐèÐÞ¸Ä
+	for(int i = 1; i < need; ++i)							//éœ€ä¿®æ”¹
 	{
 		p -> LinkNext = __D_LinkCreate();
 		p -> LinkNext -> LinkNext = NULL;

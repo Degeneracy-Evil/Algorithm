@@ -1,4 +1,4 @@
-#ifndef MY_STD_SIN
+ï»¿#ifndef MY_STD_SIN
 	#define MY_STD_SIN
 	#include <stdlib.h>
 #endif
@@ -49,7 +49,7 @@ S_LinkP * S_LinkMove(S_LinkP * p, int targer)
 	return p;
 }
 
-void S_LinkInsert(S_LinkP * p, int targer, int _node)		//ÔÚtargerºóÃæ²åÈë£¬targerÖ¸Æ«ÒÆÁ¿£¬´Ó[0,len(S_LinkP))
+void S_LinkInsert(S_LinkP * p, int targer, int _node)		//åœ¨targeråŽé¢æ’å…¥ï¼ŒtargeræŒ‡åç§»é‡ï¼Œä»Ž[0,len(S_LinkP))
 {
 	p = S_LinkMove(p, targer);
 	S_LinkP * pNext = p -> LinkNext;
