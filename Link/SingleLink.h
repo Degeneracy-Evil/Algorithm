@@ -1,5 +1,6 @@
-﻿#ifndef MY_STD_SIN
+#ifndef MY_STD_SIN
 	#define MY_STD_SIN
+	#include <stdio.h>
 	#include <stdlib.h>
 #endif
 
@@ -8,25 +9,25 @@ typedef struct SingleLink{
 	struct SingleLink * LinkNext;
 }S_LinkP;
 
-inline S_LinkP * __S_LinkCreate()
+inline S_LinkP * __CreateS_Link()
 {
 	return (S_LinkP *)malloc(sizeof(S_LinkP));
 }
 
-S_LinkP * S_LinkCreate(int need)
+S_LinkP * CreateS_Link(int need)
 {
-	S_LinkP * p = __S_LinkCreate();
+	S_LinkP * p = __CreateS_Link();
 
-	for(int i = 1; i < need; ++i)
+	for(int i = 1; i < need; ++i,p = p ->LinkNext)
 	{
-		p -> LinkNext = __S_LinkCreate();
+		p -> LinkNext = __CreateS_Link();
 		p -> LinkNext -> LinkNext = NULL;
 	}
 
 	return p;
 }
 
-S_LinkP * S_LinkFind(S_LinkP * p, int targer)
+S_LinkP * FindS_Link(S_LinkP * p, int targer)
 {
 	while ((p -> LinkNext != NULL) && (p -> node != targer))
 	{
@@ -40,7 +41,7 @@ S_LinkP * S_LinkFind(S_LinkP * p, int targer)
 	return p;
 }
 
-S_LinkP * S_LinkMove(S_LinkP * p, int targer)
+S_LinkP * MoveS_Link(S_LinkP * p, int targer)
 {
 	for (int i = 0; i < targer; ++i)
 	{
@@ -49,9 +50,9 @@ S_LinkP * S_LinkMove(S_LinkP * p, int targer)
 	return p;
 }
 
-void S_LinkInsert(S_LinkP * p, int targer, int _node)		//在targer后面插入，targer指偏移量，从[0,len(S_LinkP))
+void InsertS_Link(S_LinkP * p, int targer, int _node)		//在targer后面插入，targer指偏移量，从[0,len(S_LinkP))
 {
-	p = S_LinkMove(p, targer);
+	p = MoveS_Link(p, targer);
 	S_LinkP * pNext = p -> LinkNext;
 	
 	S_LinkP * pTar = (S_LinkP *)malloc(sizeof(S_LinkP));
@@ -61,23 +62,23 @@ void S_LinkInsert(S_LinkP * p, int targer, int _node)		//在targer后面插入�
 	p -> LinkNext = pTar;
 }
 
-void S_LinkDelete(S_LinkP * p, int targer)
+void DeleteS_Link(S_LinkP * p, int targer)
 {
-	p = S_LinkMove(p, targer);
+	p = MoveS_Link(p, targer);
 	S_LinkP * pNext = p -> LinkNext -> LinkNext;
-	free(p -> LinkNext);
+	free(p);
 	p -> LinkNext = pNext;
 }
 
-void S_LinkDeleteAll(S_LinkP * p)
+void DeleteAllS_Link(S_LinkP * p)
 {
 	for (S_LinkP * pNext = p -> LinkNext; pNext != NULL; )
 	{
-		S_LinkDelete(p, 0);
+		DeleteS_Link(p, 0);
 	}
 }
 
-void S_LinkPrint(S_Link * p)
+void PrintS_Link(S_LinkP * p)
 {
 	for (int i = 0; p -> LinkNext != NULL; ++i, p = p -> LinkNext)
 	{

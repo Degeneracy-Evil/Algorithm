@@ -1,4 +1,4 @@
-﻿#ifndef MY_STD_DOU
+#ifndef MY_STD_DOU
 	#define MY_STD_DOU
 	#include <stdlib.h>
 #endif
@@ -9,14 +9,14 @@ typedef struct DoubleLink{
 	struct DoubleLink * LinkNext;
 }D_LinkP;
 
-inline D_Link * __D_LinkCreate()
+inline D_LinkP * __D_LinkCreate()
 {
-	return (D_Link *)malloc(sizeof(D_LinkP));
+	return (D_LinkP *)malloc(sizeof(D_LinkP));
 }
 
-D_Link * D_LinkCreate()(int need)
+D_LinkP * D_LinkCreate(int need)
 {
-	D_Link * p = __D_LinkCreate();
+	D_LinkP * p = __D_LinkCreate();
 
 	for(int i = 1; i < need; ++i)							//需修改
 	{
@@ -27,7 +27,7 @@ D_Link * D_LinkCreate()(int need)
 	return p;
 }
 
-LinkP * D_LinkFind(int targer)
+D_LinkP * D_LinkFind(int targer)
 {
 	return ;
 }
