@@ -1,18 +1,19 @@
-#include "SingleLink.h"
+#include "SinglyLink.h"
+#include "DoublyLink.h"
 
 int main(void)
 {
-	S_LinkP *p = CreateS_Link(5);
+	SinglyLink * p = CreateSinglyLink(5);
 
-	InputAllS_Link(p);
+	InputAllSinglyLink(p);
 
-	PrintS_Link(p);
+	PrintSinglyLink(p);
 
-	DeleteS_Link(p, 0);
-	DeleteS_Link(p, 0);
-	DeleteS_Link(p, 0);
-	DeleteS_Link(p, 0);
-	DeleteS_Link(p, 0);
+	DeleteSinglyLink(p, 0);
+	DeleteSinglyLink(p, 0);
+	DeleteSinglyLink(p, 0);
+	DeleteSinglyLink(p, 0);
+	DeleteSinglyLink(p, 0);
 
 	return 0;
 }

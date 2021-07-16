@@ -1,4 +1,6 @@
-typedef struct binarytree BinaryTree;	//重复，如何修改？
+#include "BinaryTree.h"
+
+typedef struct binarytree BinaryTree;
 
 BinaryTree * __CreateBinaryTree();
 BinaryTree * CreateBinaryTree(int);
