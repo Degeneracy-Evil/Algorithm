@@ -3,17 +3,17 @@
 
 int main(void)
 {
-	SinglyLink * p = CreateSinglyLink(5);
+	unsigned int n;
+	printf("Please input length: ");
+	scanf("%d",&n);
+
+	SinglyLink * p = CreateSinglyLink(n);
 
 	InputAllSinglyLink(p);
 
-	PrintSinglyLink(p);
+	PrintAllSinglyLink(p);
 
-	DeleteSinglyLink(p, 0);
-	DeleteSinglyLink(p, 0);
-	DeleteSinglyLink(p, 0);
-	DeleteSinglyLink(p, 0);
-	DeleteSinglyLink(p, 0);
+	DeleteAllSinglyLink(p);
 
 	return 0;
 }

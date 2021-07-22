@@ -2,46 +2,14 @@
 	#define MY_STD_DOU_LINK
 	#include <stdio.h>
 	#include <stdlib.h>
+	#include <assert.h>
 #endif
 
-typedef struct D_Link
-{
-	struct D_Link * LinkLast;
-	int node;
-	struct D_Link * LinkNext;
-}DoublyLink;
+typedef struct _DoublyLink DoublyLink;
 
-DoublyLink * __CreateDoublyLink()
-{
-	return (DoublyLink *)malloc(sizeof(DoublyLink));
-}
-
-DoublyLink * CreateDoublyLink(int need)
-{
-	DoublyLink *p = __CreateDoublyLink();
-
-	for (int i = 1; i < need; ++i)
-	{
-		p -> LinkNext = __CreateDoublyLink();
-		p -> LinkNext -> LinkNext = NULL;
-	}
-
-	return p;
-}
-
-DoublyLink * FindDoublyLink(int targer)
-{
-	return (DoublyLink *)NULL;
-}
-
-void InsertDoublyLink(int targer)
-{
-}
-
-void DeleteDoublyLink(int targer)
-{
-}
-
-void DeleteAllDoublyLink(DoublyLink * p)
-{
-}
+DoublyLink * __CreateDoublyLink(void);
+DoublyLink * CreateDoublyLink(const int);
+DoublyLink * FindDoublyLink(DoublyLink *, const int);
+void InsertDoublyLink(DoublyLink *, const int);
+void DeleteDoublyLink(DoublyLink *, const int);
+void DeleteAllDoublyLink(DoublyLink * p);
