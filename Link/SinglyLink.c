@@ -14,6 +14,11 @@ SinglyLink * __CreateSinglyLink(void)
 
 SinglyLink * CreateSinglyLink(const int need)
 {
+	if (need <= 0)
+	{
+		return SINNULL;
+	}
+	
 	SinglyLink * pNext = __CreateSinglyLink();
 	assert(pNext);
 	SinglyLink * p = pNext;
@@ -21,7 +26,7 @@ SinglyLink * CreateSinglyLink(const int need)
 	for (int i = 1; i < need; ++i)
 	{
 		pNext -> LinkNext = __CreateSinglyLink();
-		pNext -> LinkNext -> LinkNext = NULL;
+		pNext -> LinkNext -> LinkNext = SINNULL;
 		pNext = pNext -> LinkNext;
 	}
 
@@ -30,14 +35,14 @@ SinglyLink * CreateSinglyLink(const int need)
 
 SinglyLink * FindSinglyLink(SinglyLink * p, const int target)
 {
-	while ((p -> LinkNext != NULL) && (p -> node != target))
+	while ((p -> LinkNext != SINNULL) && (p -> node != target))
 	{
 		p = p -> LinkNext;
 	}
 
-	if (p -> LinkNext == NULL)
+	if (p -> LinkNext == SINNULL)
 	{
-		return NULL;
+		return SINNULL;
 	}
 	return p;
 }
@@ -93,6 +98,7 @@ void DeleteSinglyLink(SinglyLink * p, const int target)
 		SinglyLink * pNext = p -> LinkNext -> LinkNext;
 		free(p -> LinkNext);
 		p -> LinkNext = pNext;
+		return;
 	}
 	else
 	{
@@ -110,6 +116,7 @@ void DeleteAllSinglyLink(SinglyLink * p)
         p = pNext;
         pNext = pNext -> LinkNext;
 	}
+	free(p);
 }
 
 void PrintSinglyLink(SinglyLink * p, const int target)
@@ -120,7 +127,7 @@ void PrintSinglyLink(SinglyLink * p, const int target)
 
 void PrintAllSinglyLink(SinglyLink * p)
 {
-	for (int i = 0; p != NULL; ++i, p = p->LinkNext)
+	for (int i = 0; p != SINNULL; ++i, p = p->LinkNext)
 	{
 		printf("SinglyLink[%d]: %d\n", i, p -> node);
 	}
@@ -135,7 +142,7 @@ void InputSinglyLink(SinglyLink * p, const int target)
 
 void InputAllSinglyLink(SinglyLink * p)
 {
-	for (unsigned int i = 0; p != NULL; ++i, p = p -> LinkNext)
+	for (unsigned int i = 0; p != SINNULL; ++i, p = p -> LinkNext)
 	{
 		printf("Please input SinglyLink[%d]: ", i);
 		scanf("%d", &(p -> node));
@@ -146,7 +153,7 @@ unsigned int LengthSinglyLink(SinglyLink * p)
 {
 	unsigned int count = 0;
 
-	while (p != NULL)
+	while (p != SINNULL)
 	{
 		p = p -> LinkNext;
 		++count;

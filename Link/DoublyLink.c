@@ -24,7 +24,7 @@ DoublyLink * CreateDoublyLink(const int need)
 	{
 		p -> LinkNext = __CreateDoublyLink();
 		p -> LinkLast = p;
-		p -> LinkNext -> LinkNext = NULL;
+		p -> LinkNext -> LinkNext = DOUNULL;
 		pNext = pNext -> LinkNext;
 	}
 

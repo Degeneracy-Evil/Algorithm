@@ -7,6 +7,8 @@
 
 typedef struct _SinglyLink SinglyLink;
 
+#define SINNULL (SinglyLink *)NULL 
+
 SinglyLink * __CreateSinglyLink(void);
 SinglyLink * CreateSinglyLink(const int);
 SinglyLink * FindSinglyLink(SinglyLink *, const int);
