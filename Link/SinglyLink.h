@@ -6,6 +6,11 @@
 #endif
 
 typedef struct _SinglyLink SinglyLink;
+struct _SinglyLink
+{
+	int node;
+	SinglyLink * LinkNext;
+};
 
 #define SINNULL (SinglyLink *)NULL 
 

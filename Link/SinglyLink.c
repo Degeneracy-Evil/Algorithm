@@ -1,12 +1,5 @@
 #include "SinglyLink.h"
 
-struct _SinglyLink
-{
-	int node;
-	struct _SinglyLink * LinkNext;
-};
-typedef struct _SinglyLink SinglyLink;
-
 SinglyLink * __CreateSinglyLink(void)
 {
 	return (SinglyLink *)malloc(sizeof(SinglyLink));
@@ -71,6 +64,7 @@ SinglyLink * MoveSinglyLink(SinglyLink * p, const int target)	//"target" 指移�
 	}
 }
 
+//insert after target
 void InsertSinglyLink(SinglyLink * p, const int target, const int data) //"target" starts from 0, "target" can belong to [0,len(SinglyLink) ).
 {
 	p = MoveSinglyLink(p, target);
@@ -85,6 +79,11 @@ void InsertSinglyLink(SinglyLink * p, const int target, const int data) //"targe
 
 void DeleteSinglyLink(SinglyLink * p, const int target)
 {
+	if (SINNULL == p)
+	{
+		return;
+	}
+	
 	if (0 == target)
 	{
 		SinglyLink * pNext = p -> LinkNext -> LinkNext;
